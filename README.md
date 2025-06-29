@@ -4,9 +4,9 @@ H! welcome to our EyeTracking project. To run this on your local machine, please
 
 To run it, you'll need a virtual environment running Python 3.10:
 use <code> py -3.10 -m venv .venv </code> to create the .venv folder
-and then run <code> .\.venv\Scripts\Activate.ps1 </code> to activate the virtual environment.
+and then <br> run <code> .\\.venv\Scripts\Activate.ps1 </code> to activate the virtual environment.
 The indicator (.venv) in your terminal tells you it worked! :) Then, confirm the python version 3.10 with <code> python --version </code> (it should show the version 3.10.11)
-After that, install the dependencies: <code> pip install -r requirements.txt </code>
+After that, <br> install the dependencies: <code> pip install -r requirements.txt </code>
 
 
 -----
@@ -20,6 +20,15 @@ Congrats!
 First, the app will calibrate using your gaze. Follow the dot with your eyes. 
 After reaching 25 points, it will stop calibrating and the stimulus is shown.
 Look naturally where you would look at while seeing a person. 
+
+------
+
+# Important! 
+
+Please keep approximately an arm distance from your screen.
+Keep this distance as good as you can. Don't move around, don't lean anywhere.
+Otherwise we can't guarantee that the gazeTracking application will work properly.
+Thank you! :)
 
 -----
 
