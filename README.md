@@ -21,6 +21,15 @@ First, the app will calibrate using your gaze. Follow the dot with your eyes.
 After reaching 25 points, it will stop calibrating and the stimulus is shown.
 Look naturally where you would look at while seeing a person. 
 
+------
+
+# Important! 
+
+Please keep approximately an arm distance from your screen.
+Keep this distance as good as you can. Don't move around, don't lean anywhere.
+Otherwise we can't guarantee that the gazeTracking application will work properly.
+Thank you! :)
+
 -----
 
 The app is supposed to record your gaze and save the gaze times for each region (eyes, nose, mouth, forehead, chin). 
