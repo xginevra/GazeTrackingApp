@@ -229,7 +229,7 @@ while running:
 
         if start_time:
             start_time = False
-            end_time = time.time() + 5  # Run for 10 seconds
+            end_time = time.time() + 20  # Run for 10 seconds
         if time.time() > end_time:
             running = False
             break
@@ -318,11 +318,12 @@ while running:
                         print(f"Drew rectangle for {region_name}")
 
             # Draw the gaze point
-            pygame.draw.circle(screen, (255, 0, 0), event.point, 7)
+            if gestures.whichAlgorithm(context="my_context") == "Ridge":
+                pygame.draw.circle(screen, (255, 0, 0), event.point, 7)
                 
     pygame.display.flip()
     # Cap the frame rate
-    clock.tick(60)
+    clock.tick(10)
 
 print("Exiting...")
 # Release the video capture object
