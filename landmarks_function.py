@@ -14,6 +14,10 @@ def detect_face_regions_mediapipe(image):
         refine_landmarks=True,
         min_detection_confidence=0.5) as face_mesh:
         
+        # Convert BGR to RGB
+        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        results = face_mesh.process(rgb_image)
+        
 
 
 
