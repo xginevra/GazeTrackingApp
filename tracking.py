@@ -199,7 +199,8 @@ def main():
                    rectangles['chin'][0][1] <= event.point[1] <= rectangles['chin'][1][1]:
                     chin_ticks += 1
             if gestures.whichAlgorithm(context="my_context") == "Ridge":
-                pygame.draw.circle(screen, (255, 0, 0), event.point, 7)    
+     # following circle kept for debugging purposes, if needed: uncomment
+              #  pygame.draw.circle(screen, (255, 0, 0), event.point, 7)    
         pygame.display.flip()
         # Cap the frame rate
         clock.tick(30)
@@ -224,7 +225,9 @@ def main():
     screen.blit(bold_font.render(f"Chin: {time_chin:.2f} seconds", True, WHITE), (50, 300))
     pygame.display.flip()
     pygame.time.delay(20000)  # Show the results for some seconds
-
+    
+# delete print lines below, those were only for debugging purposes
+    
     print(f"Time per tick: {time_calculator:.2f} seconds")
     print(f"Time spent on eyes: {time_eyes:.2f} seconds")
     print(f"Time spent on nose: {time_nose:.2f} seconds")
@@ -232,6 +235,9 @@ def main():
     print(f"Time spent on forehead: {time_forehead:.2f} seconds")
     print(f"Time spent on chin: {time_chin:.2f} seconds")
     print(f"Eyes ticks: {eyes_ticks}, Nose ticks: {nose_ticks}, Mouth ticks: {mouth_ticks}, Forehead ticks: {forehead_ticks}, Chin ticks: {chin_ticks}, Total ticks: {total_ticks}")
+
+# stop deleting here
+    
     create_database()
     insert_data_sql(forehead=time_forehead, eyes=time_eyes, nose=time_nose, mouth=time_mouth, chin=time_chin)
     print("Exiting...")
