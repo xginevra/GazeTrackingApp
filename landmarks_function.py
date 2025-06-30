@@ -7,7 +7,14 @@ mp_face_detection = mp.solutions.face_detection
 mp_drawing = mp.solutions.drawing_utils
 
 def detect_face_regions_mediapipe(image):
-    pass
+    """Fallback face detection using MediaPipe"""
+    with mp_face_mesh.FaceMesh(
+        static_image_mode=True,
+        max_num_faces=1,
+        refine_landmarks=True,
+        min_detection_confidence=0.5) as face_mesh:
+        
+
 
 
 def get_face_regions_reactangels_plus_10_pixels(landmarks, screen_width, screen_height):
