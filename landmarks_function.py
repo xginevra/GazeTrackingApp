@@ -18,6 +18,20 @@ def detect_face_regions_mediapipe(image):
         rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         results = face_mesh.process(rgb_image)
         
+        if results.multi_face_landmarks:
+            landmarks = results.multi_face_landmarks[0]
+            h, w = image.shape[:2]
+            
+            # Convert normalized coordinates to pixel coordinates
+            coords = []
+            for landmark in landmarks.landmark:
+                x = int(landmark.x * w)
+                y = int(landmark.y * h)
+                coords.append((x, y))
+            print(f"Detected {len(coords)} landmarks using MediaPipe")
+            return coords
+    return None
+        
 
 
 
