@@ -12,7 +12,7 @@ Make sure everything from requirements.txt is installed - if not, please manuall
 
 -----
 
-Run then <code> python tracking_examplecopy.py </code>
+Run then <code> python tracking.py </code>
 
 Congrats!
 
