@@ -225,16 +225,6 @@ def main():
     screen.blit(bold_font.render(f"Chin: {time_chin:.2f} seconds", True, WHITE), (50, 300))
     pygame.display.flip()
     pygame.time.delay(20000)  # Show the results for some seconds
-    
-    # delete print lines below, those were only for debugging purposes
-    
-    print(f"Time per tick: {time_calculator:.2f} seconds")
-    print(f"Time spent on eyes: {time_eyes:.2f} seconds")
-    print(f"Time spent on nose: {time_nose:.2f} seconds")
-    print(f"Time spent on mouth: {time_mouth:.2f} seconds")
-    print(f"Time spent on forehead: {time_forehead:.2f} seconds")
-    print(f"Time spent on chin: {time_chin:.2f} seconds")
-    print(f"Eyes ticks: {eyes_ticks}, Nose ticks: {nose_ticks}, Mouth ticks: {mouth_ticks}, Forehead ticks: {forehead_ticks}, Chin ticks: {chin_ticks}, Total ticks: {total_ticks}")
 
     # stop deleting here
     
