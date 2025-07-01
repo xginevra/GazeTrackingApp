@@ -8,14 +8,17 @@ import numpy as np
 from landmarks import detect_face_regions_mediapipe, get_face_regions_reactangels_plus_10_pixels, get_enhanced_face_regions
 from database import create_database, insert_data_sql
 
+from calibrationtest import calibration_test
+
 def main():
     pygame.init()
     pygame.font.init()
-
+    
     # Get the display dimensions
     screen_info = pygame.display.Info()
     screen_width = screen_info.current_w
     screen_height = screen_info.current_h
+    wait_time = 20  # seconds to wait before closing the window
 
     # Set up the screen
     screen = pygame.display.set_mode((screen_width, screen_height))
@@ -30,19 +33,19 @@ def main():
     from eyeGestures.utils import VideoCapture
     from eyeGestures import EyeGestures_v3
 
-    gestures = EyeGestures_v3()
+    gestures = EyeGestures_v3(calibration_radius=200)
     cap = VideoCapture(0)
 
-    x = np.arange(0, 1.1, 0.2)
-    y = np.arange(0, 1.1, 0.2)
+    x = np.arange(0.15, 0.9, 0.15)
+    y = np.arange(0.15, 0.9, 0.15)
 
     xx, yy = np.meshgrid(x, y)
 
     calibration_map = np.column_stack([xx.ravel(), yy.ravel()])
+    n_points = min(len(calibration_map),25)
     np.random.shuffle(calibration_map)
     gestures.uploadCalibrationMap(calibration_map,context="my_context")
-    #gestures.setClassicalImpact(2)
-    gestures.setFixation(1.0)
+    gestures.setFixation(0.8)
     # Initialize Pygame
     # Set up colors
     RED = (255, 0, 100)
@@ -62,9 +65,7 @@ def main():
     infos = pygame.display.Info()
 
     face_frame = cv2.imread("face_1.jpg")
-    
-    resized_image = cv2.resize(face_frame, (infos.current_w, infos.current_h))
-            # Draw the cursor at the new position
+
     landmarks = detect_face_regions_mediapipe(face_frame)
     print(f"Detected {len(landmarks)} landmarks in the image.")
     rectangles = get_face_regions_reactangels_plus_10_pixels(landmarks, infos.current_w, infos.current_h)
@@ -90,9 +91,11 @@ def main():
 
 
         # Generate new random position for the cursor
-        calibrate = (iterator <= 25) # calibrate 25 point
         ret, frame = cap.read()
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame = np.rot90(frame)
+
+        calibrate = (iterator <= n_points) 
 
         event, calibration = gestures.step(frame, calibrate, screen_width, screen_height, context="my_context")
 
@@ -101,7 +104,6 @@ def main():
 
         
         screen.fill((0, 0, 0))
-        frame = np.rot90(frame)
         if calibrate:
             frame = pygame.surfarray.make_surface(frame)
             frame = pygame.transform.scale(frame, (400, 400))
@@ -126,12 +128,12 @@ def main():
                 else:
                     pass
                 if gestures.whichAlgorithm(context="my_context") == "Ridge":
-                    pygame.draw.circle(screen, RED, event.point, 50)
+                    pygame.draw.circle(screen, RED, event.point, 20)
                 if gestures.whichAlgorithm(context="my_context") == "LassoCV":
                     pygame.draw.circle(screen, BLUE, event.point, 50)
                 my_font = pygame.font.SysFont('Comic Sans MS', 30)
-                text_surface = my_font.render(f'{gestures.whichAlgorithm(context="my_context")}', False, (0, 0, 0))
-                screen.blit(text_surface, event.point)
+                """ text_surface = my_font.render(f'{gestures.whichAlgorithm(context="my_context")}', False, (0, 0, 0))
+                screen.blit(text_surface, event.point) """
                 
         if not calibrate:
             frame = pygame.image.load("face_1.jpg")
@@ -157,12 +159,12 @@ def main():
 
             if start_time:
                 start_time = False
-                end_time = time.time() + 10  # Run for 10 seconds, adjust as needed
+                end_time = time.time() + wait_time  # Run for x seconds, adjust as needed
             if time.time() > end_time:
                 running = False
                 
                 # for debugging purposes, draw rectangles around the regions
-            """  for region_name in rectangles.keys():   
+            for region_name in rectangles.keys():   
                 rect_width = rectangles[region_name][1][0] - rectangles[region_name][0][0]
                 rect_height = rectangles[region_name][1][1] - rectangles[region_name][0][1]
                 color = (255, 255, 255)
@@ -179,7 +181,7 @@ def main():
                     text = font.render(region_name, True, color)
                     screen.blit(text, (rectangles[region_name][0][0], max(0, rectangles[region_name][0][1] - 25)))
 
-                    print(f"Drew rectangle for {region_name}") """
+                    print(f"Drew rectangle for {region_name}")
             total_ticks += 1
             # if event cordinate inside eyes recrtangel from rectangles[region_name] it should count one tick
             if event.point is not None:
@@ -203,13 +205,13 @@ def main():
                 pygame.draw.circle(screen, (255, 0, 0), event.point, 7)    
         pygame.display.flip()
         # Cap the frame rate
-        clock.tick(30)
+        clock.tick(60)
     # make screen black
     screen.fill((0, 0, 0))
     pygame.display.flip()
     
     # insert every time with region text to pygame screen
-    time_calculator = 10/total_ticks
+    time_calculator = wait_time/total_ticks
     time_eyes = eyes_ticks * time_calculator
     time_nose = nose_ticks * time_calculator
     time_mouth = mouth_ticks * time_calculator
