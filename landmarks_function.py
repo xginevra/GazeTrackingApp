@@ -31,8 +31,6 @@ def detect_face_regions_mediapipe(image):
             print(f"Detected {len(coords)} landmarks using MediaPipe")
             return coords
     return None
-        
-
 
 
 def get_face_regions_reactangels_plus_10_pixels(landmarks, screen_width, screen_height):
@@ -90,6 +88,7 @@ def get_face_regions_reactangels_plus_10_pixels(landmarks, screen_width, screen_
             region_rect[region_name] = [(min_x-trehshold, min_y-trehshold), (max_x+trehshold, max_y+trehshold)]
             print(f"Region {region_name} rectangle: {region_rect[region_name]}")
     return region_rect
+
 
 def get_enhanced_face_regions(landmarks):
     regions = {}
