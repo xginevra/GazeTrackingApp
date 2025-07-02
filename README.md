@@ -29,7 +29,19 @@ To run the application, you'll need a virtual environment using **Python 3.10**.
    On PowerShell (Windows), run:  
    <br><code> .\\.venv\Scripts\Activate.ps1 </code>
 
-   You should see `(.venv)` appear in your terminal — that means it worked! 😊
+   You should see `(.venv)` appear in your terminal — that means it worked!
+
+3. **Check your Python version**  
+   Make sure you're using Python 3.10:  
+   <code> python --version </code>  
+   (It should show something like <strong>3.10.11</strong>)
+
+4. **Install required libraries**  
+   Run:  
+   <code> pip install -r requirements.txt </code>  
+   <br> If anything from `requirements.txt` fails to install, please install manually using:  
+   <code> pip install &lt;package-name&gt; </code>
+
 
 
 
