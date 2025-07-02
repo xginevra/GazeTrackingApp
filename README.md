@@ -1,10 +1,10 @@
 
 H! welcome to our EyeTracking project. To run this on your local machine, please clone it: <code> git clone https://github.com/xginevra/GazeTrackingApp.git </code>
 
-GazeTrackingApp
+# GazeTrackingApp
 A Python-based eye tracking application that analyzes gaze patterns on facial regions. This research tool can provide insights into visual attention patterns, particularly useful for studying autism-related gaze behavior differences.
 
-Important Disclaimer
+# Important Disclaimer
 This application is for research and educational purposes only. While it may provide insights related to autism diagnosis patterns, we are not medical professionals, and this should never be used as a diagnostic tool. Always consult qualified healthcare providers for medical advice.
 
 
