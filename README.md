@@ -42,7 +42,9 @@ To run the application, you'll need a virtual environment using **Python 3.10**.
    <br> If anything from `requirements.txt` fails to install, please install manually using:  
    <code> pip install &lt;package-name&gt; </code>
 
-
+5. **Run the application**  
+   Once everything is installed, start the app using:  
+   <code> python tracking_examplecopy.py </code>
 
 
 
