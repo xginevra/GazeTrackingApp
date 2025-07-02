@@ -8,7 +8,7 @@ and then <br> run <code> .\\.venv\Scripts\Activate.ps1 </code> to activate the v
 The indicator (.venv) in your terminal tells you it worked! :) Then, confirm the python version 3.10 with <code> python --version </code> (it should show the version 3.10.11)
 After that, install the dependencies: <code> pip install -r requirements.txt </code> <br> 
 
-Make sure everything from requirements.txt is installed - if not, please manually install via the <code> pip install </code> command.
+Make sure everything from requirements.txt is installed - if not, please manually install via the <code> pip install </code> 
 
 -----
 
