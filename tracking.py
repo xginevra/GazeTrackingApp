@@ -8,8 +8,6 @@ import numpy as np
 from landmarks_function import detect_face_regions_mediapipe, get_face_regions_reactangels_plus_10_pixels, get_enhanced_face_regions
 from database import create_database, insert_data_sql
 
-from calibrationtest import calibration_test
-
 def main():
     pygame.init()
     pygame.font.init()
