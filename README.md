@@ -1,4 +1,22 @@
+
 H! welcome to our EyeTracking project. To run this on your local machine, please clone it: <code> git clone https://github.com/xginevra/GazeTrackingApp.git </code>
+
+# GazeTrackingApp
+A Python-based eye tracking application that analyzes gaze patterns on facial regions. This research tool can provide insights into visual attention patterns, particularly useful for studying autism-related gaze behavior differences.
+
+# Important Disclaimer
+This application is for research and educational purposes only. While it may provide insights related to autism diagnosis patterns, we are not medical professionals, and this should never be used as a diagnostic tool. Always consult qualified healthcare providers for medical advice.
+
+## 🔍 Project Background
+
+Atypical gaze behavior — such as avoiding eye contact — is a well-documented trait in individuals with Autism Spectrum Disorder (ASD). Our tool uses webcam-based eye tracking and facial landmark detection to measure how long a user focuses on different facial regions.
+
+This can support:
+- Early research into visual attention differences  
+- Supplementing social training tools  
+- Gathering visual attention data in a controlled setup 
+
+
 
 ------
 
@@ -8,7 +26,7 @@ and then <br> run <code> .\\.venv\Scripts\Activate.ps1 </code> to activate the v
 The indicator (.venv) in your terminal tells you it worked! :) Then, confirm the python version 3.10 with <code> python --version </code> (it should show the version 3.10.11)
 After that, install the dependencies: <code> pip install -r requirements.txt </code> <br> 
 
-Make sure everything from requirements.txt is installed - if not, please manually install via the <code> pip install </code> command.
+Make sure everything from requirements.txt is installed - if not, please manually install via the  pip install  command.
 
 -----
 
