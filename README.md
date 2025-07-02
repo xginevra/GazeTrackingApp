@@ -14,7 +14,24 @@ Atypical gaze behavior — such as avoiding eye contact — is a well-documented
 This can support:
 - Early research into visual attention differences  
 - Supplementing social training tools  
-- Gathering visual attention data in a controlled setup 
+- Gathering visual attention data in a controlled setup
+
+
+## 🚀 How to Run
+
+To run the application, you'll need a virtual environment using **Python 3.10**.
+
+1. **Create the virtual environment**  
+   Use the following command to create a `.venv` folder:  
+   <code> py -3.10 -m venv .venv </code>
+
+2. **Activate the virtual environment**  
+   On PowerShell (Windows), run:  
+   <br><code> .\\.venv\Scripts\Activate.ps1 </code>
+
+   You should see `(.venv)` appear in your terminal — that means it worked! 😊
+
+
 
 
 
