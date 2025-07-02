@@ -17,6 +17,21 @@ This can support:
 - Gathering visual attention data in a controlled setup
 
 
+## 🧠 How It Works
+
+1. **Calibration Phase**:  
+   - The app starts by displaying 25 calibration points.
+   - Users should follow each point with their eyes while keeping their head still.
+
+2. **Stimulus Phase**:  
+   - A face image is displayed.
+   - The app tracks gaze points and records how long each facial region (eyes, nose, mouth, forehead, chin) is focused on.
+
+3. **Session Summary**:  
+   - A summary screen shows time spent on each region.
+   - Gaze data is saved into a local SQLite database (`gazedata.db`).
+
+
 ## How to Run
 
 To run the application, you'll need a virtual environment using **Python 3.10**.
