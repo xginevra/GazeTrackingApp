@@ -225,8 +225,6 @@ def main():
     screen.blit(bold_font.render(f"Chin: {time_chin:.2f} seconds", True, WHITE), (50, 300))
     pygame.display.flip()
     pygame.time.delay(20000)  # Show the results for some seconds
-
-    # stop deleting here
     
     create_database()
     insert_data_sql(forehead=time_forehead, eyes=time_eyes, nose=time_nose, mouth=time_mouth, chin=time_chin)
