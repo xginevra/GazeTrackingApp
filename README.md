@@ -61,7 +61,11 @@ To run the application, you'll need a virtual environment using **Python 3.10**.
    Once everything is installed, start the app using:  
    <code> python tracking_examplecopy.py </code>
 
+## 🧰 Requirements
 
+- Python 3.10.11 (must be ≤ 3.10, not compatible with 3.11+)
+- Webcam
+- Windows OS (tested)
 
 
 ------
