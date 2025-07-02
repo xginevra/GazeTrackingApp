@@ -7,7 +7,7 @@ A Python-based eye tracking application that analyzes gaze patterns on facial re
 # Important Disclaimer
 This application is for research and educational purposes only. While it may provide insights related to autism diagnosis patterns, we are not medical professionals, and this should never be used as a diagnostic tool. Always consult qualified healthcare providers for medical advice.
 
-## 🔍 Project Background
+## Project Background
 
 Atypical gaze behavior — such as avoiding eye contact — is a well-documented trait in individuals with Autism Spectrum Disorder (ASD). Our tool uses webcam-based eye tracking and facial landmark detection to measure how long a user focuses on different facial regions.
 
@@ -17,7 +17,7 @@ This can support:
 - Gathering visual attention data in a controlled setup
 
 
-## 🚀 How to Run
+## How to Run
 
 To run the application, you'll need a virtual environment using **Python 3.10**.
 
