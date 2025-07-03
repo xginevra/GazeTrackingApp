@@ -7,15 +7,65 @@ A Python-based eye tracking application that analyzes gaze patterns on facial re
 # Important Disclaimer
 This application is for research and educational purposes only. While it may provide insights related to autism diagnosis patterns, we are not medical professionals, and this should never be used as a diagnostic tool. Always consult qualified healthcare providers for medical advice.
 
-## 🔍 Project Background
+## Project Background
 
 Atypical gaze behavior — such as avoiding eye contact — is a well-documented trait in individuals with Autism Spectrum Disorder (ASD). Our tool uses webcam-based eye tracking and facial landmark detection to measure how long a user focuses on different facial regions.
 
 This can support:
 - Early research into visual attention differences  
 - Supplementing social training tools  
-- Gathering visual attention data in a controlled setup 
+- Gathering visual attention data in a controlled setup
 
+
+## 🧠 How It Works
+
+1. **Calibration Phase**:  
+   - The app starts by displaying 25 calibration points.
+   - Users should follow each point with their eyes while keeping their head still.
+
+2. **Stimulus Phase**:  
+   - A face image is displayed.
+   - The app tracks gaze points and records how long each facial region (eyes, nose, mouth, forehead, chin) is focused on.
+
+3. **Session Summary**:  
+   - A summary screen shows time spent on each region.
+   - Gaze data is saved into a local SQLite database (`gazedata.db`).
+
+
+## How to Run
+
+To run the application, you'll need a virtual environment using **Python 3.10**.
+
+1. **Create the virtual environment**  
+   Use the following command to create a `.venv` folder:  
+   <code> py -3.10 -m venv .venv </code>
+
+2. **Activate the virtual environment**  
+   On PowerShell (Windows), run:  
+   <br><code> .\\.venv\Scripts\Activate.ps1 </code>
+
+   You should see `(.venv)` appear in your terminal — that means it worked!
+
+3. **Check your Python version**  
+   Make sure you're using Python 3.10:  
+   <code> python --version </code>  
+   (It should show something like <strong>3.10.11</strong>)
+
+4. **Install required libraries**  
+   Run:  
+   <code> pip install -r requirements.txt </code>  
+   <br> If anything from `requirements.txt` fails to install, please install manually using:  
+   <code> pip install &lt;package-name&gt; </code>
+
+5. **Run the application**  
+   Once everything is installed, start the app using:  
+   <code> python tracking_examplecopy.py </code>
+
+## 🧰 Requirements
+
+- Python 3.10.11 (must be ≤ 3.10, not compatible with 3.11+)
+- Webcam
+- Windows OS (tested)
 
 
 ------
